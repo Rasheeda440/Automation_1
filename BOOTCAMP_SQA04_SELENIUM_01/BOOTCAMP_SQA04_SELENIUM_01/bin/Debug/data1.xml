@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Automation>
+	<Testing>			
+		<TestCase_Login_002>
+			<url>http://adactinhotelapp.com/</url> 
+			<username>AmirTester</username>
+			<password>AmirTester</password>				
+		</TestCase_Login_002>	
+		<TestCase_Login_002>
+			<url>http://adactinhotelapp.com/</url> 
+			<username>@$@$##$</username>
+			<password>@##$#@$$</password>				
+		</TestCase_Login_002>	
+		<TestCase_Login_002>
+			<url>http://adactinhotelapp.com/</url> 
+			<username></username>
+			<password></password>				
+		</TestCase_Login_002>	
+	</Testing>
+</Automation>
