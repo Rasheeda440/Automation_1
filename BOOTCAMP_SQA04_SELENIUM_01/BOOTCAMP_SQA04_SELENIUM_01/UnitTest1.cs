@@ -11,12 +11,12 @@ namespace BOOTCAMP_SQA04_SELENIUM_01
     [TestClass]
     public class UnitTest1
     {
-        //private TestContext instance;
-        //public TestContext TestContext
-        //{
-        //    set { instance = value; }
-        //    get { return instance; }
-        //}
+        private TestContext instance;
+        public TestContext TestContext
+        {
+            set { instance = value; }
+            get { return instance; }
+        }
 
 
         //[TestMethod]
@@ -45,34 +45,15 @@ namespace BOOTCAMP_SQA04_SELENIUM_01
         //public void TestCase_003()
         //{
         //    MessageBox.Show("TestCase_003");
-            
+
         //}
 
         //[TestMethod]
-        //[DataRow("AmirTester","AmirTester")]
+        //[DataRow("AmirTester", "AmirTester")]
         //[DataRow("Test", "Test123")]
         //[DataRow("#@#$$#@$", "@#$#@")]
         //public void TestCase_Login_001(string user, string pass)
         //{
-        //    IWebDriver driver = new ChromeDriver();
-        //    driver.Manage().Window.Maximize();           
-        //    driver.Url = "https://adactinhotelapp.com/";
-        //    driver.FindElement(By.Id("username")).SendKeys(user);
-        //    driver.FindElement(By.Id("password")).SendKeys(pass);
-        //    driver.FindElement(By.Id("login")).Click();
-
-        //    driver.Close();
-        //}
-
-
-
-        //[TestMethod]
-        //[DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", @"data1.xml", "TestCase_Login_002", DataAccessMethod.Random)]
-        //public void TestCase_Login_002()
-        //{
-        //    string pass = TestContext.DataRow["password"].ToString();
-        //    string user = TestContext.DataRow["username"].ToString();
-
         //    IWebDriver driver = new ChromeDriver();
         //    driver.Manage().Window.Maximize();
         //    driver.Url = "https://adactinhotelapp.com/";
@@ -80,12 +61,31 @@ namespace BOOTCAMP_SQA04_SELENIUM_01
         //    driver.FindElement(By.Id("password")).SendKeys(pass);
         //    driver.FindElement(By.Id("login")).Click();
 
-        //    string actualText =   driver.FindElement(By.ClassName("welcome_menu")).Text;
-
-        //    Assert.AreEqual("Welcome to Adactin Group of Hotels", actualText);
-
         //    driver.Close();
         //}
+
+
+
+        [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML", @"data1.xml", "TestCase_Login_002", DataAccessMethod.Random)]
+        public void TestCase_Login_002()
+        {
+            string pass = TestContext.DataRow["password"].ToString();
+            string user = TestContext.DataRow["username"].ToString();
+
+            IWebDriver driver = new ChromeDriver();
+            driver.Manage().Window.Maximize();
+            driver.Url = "https://adactinhotelapp.com/";
+            driver.FindElement(By.Id("username")).SendKeys(user);
+            driver.FindElement(By.Id("password")).SendKeys(pass);
+            driver.FindElement(By.Id("login")).Click();
+
+            string actualText = driver.FindElement(By.ClassName("welcome_menu")).Text;
+
+            Assert.AreEqual("Welcome to Adactin Group of Hotels", actualText);
+
+            driver.Close();
+        }
 
         //[TestMethod]
         //[DataSource("Microsoft.VisualStudio.TestTools.DataSource.CSV", @"data.csv", "data#csv", DataAccessMethod.Random)]
@@ -101,9 +101,9 @@ namespace BOOTCAMP_SQA04_SELENIUM_01
         //    driver.FindElement(By.Id("password")).SendKeys(pass);
         //    driver.FindElement(By.Id("login")).Click();
 
-        //  //  string actualText = driver.FindElement(By.ClassName("welcome_menu")).Text;
+        //    //  string actualText = driver.FindElement(By.ClassName("welcome_menu")).Text;
 
-        //  //  Assert.AreEqual("Welcome to Adactin Group of Hotels", actualText);
+        //    //  Assert.AreEqual("Welcome to Adactin Group of Hotels", actualText);
 
         //    driver.Close();
         //}
@@ -111,7 +111,7 @@ namespace BOOTCAMP_SQA04_SELENIUM_01
         //[TestMethod]
         //public void TestCase_Login_003_positive()
         //{
-    
+
         //    IWebDriver driver = new ChromeDriver();
         //    driver.Manage().Window.Maximize();
         //    driver.Url = "https://adactinhotelapp.com/";
@@ -198,10 +198,10 @@ namespace BOOTCAMP_SQA04_SELENIUM_01
         //    driver.FindElement(By.CssSelector("#app div.home-body div div:nth-child(1) div div.card-body h5")).Click();
         //    driver.FindElement(By.Id("item-4")).Click();
         //    Actions actions = new Actions(driver);
-          
+
         //    actions.DoubleClick(driver.FindElement(By.Id("doubleClickBtn"))).Perform();
         //    Assert.AreEqual("You have done a double click", driver.FindElement(By.Id("doubleClickMessage")).Text);
-            
+
         //    Thread.Sleep(5000);
         //    driver.Close();
         //}
